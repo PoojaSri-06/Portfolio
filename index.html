@@ -46,6 +46,10 @@
 </head>
 <body class="bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-pink-500 selection:text-white">
 
+  <!-- Custom Interactive Glowing Pointer & Ring -->
+  <div id="custom-cursor-dot" class="hidden md:block"></div>
+  <div id="custom-cursor-ring" class="hidden md:block"></div>
+
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 z-50 transition-all duration-150 w-0"></div>
 
@@ -161,11 +165,11 @@
 
             <!-- Action Buttons -->
             <div class="flex flex-wrap items-center gap-4 pt-4">
-              <a href="#projects" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-sm shadow-xl shadow-pink-500/25 transition-all duration-300 hover:scale-105">
+              <a href="#projects" class="btn-shine inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-sm shadow-xl shadow-pink-500/25 transition-all duration-300 hover:scale-105 active:scale-95">
                 <span>Explore My Work</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
               </a>
-              <a href="/assets/pdfs/Template-Based Presentation.pdf" target="_blank" download class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 shadow-sm">
+              <a href="/assets/pdfs/Template-Based Presentation.pdf" target="_blank" download class="btn-shine inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95">
                 <span>Download PDF Deck</span>
                 <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               </a>
@@ -173,15 +177,15 @@
 
             <!-- Quick Metrics Ticker -->
             <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800/80 max-w-lg">
-              <div>
+              <div class="p-3 rounded-2xl bg-white/50 dark:bg-slate-800/30 border border-slate-200/60 dark:border-slate-800/60 hover:border-pink-500/40 transition-all duration-300 hover:scale-105">
                 <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">50+</span>
                 <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Brand Assets Built</span>
               </div>
-              <div>
+              <div class="p-3 rounded-2xl bg-white/50 dark:bg-slate-800/30 border border-slate-200/60 dark:border-slate-800/60 hover:border-pink-500/40 transition-all duration-300 hover:scale-105">
                 <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100%</span>
                 <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Client Satisfaction</span>
               </div>
-              <div>
+              <div class="p-3 rounded-2xl bg-white/50 dark:bg-slate-800/30 border border-slate-200/60 dark:border-slate-800/60 hover:border-pink-500/40 transition-all duration-300 hover:scale-105">
                 <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Canva</span>
                 <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Power Specialist</span>
               </div>
@@ -191,7 +195,7 @@
 
           <!-- Hero Designer Workbench Graphic Card with Video / Image Showcase -->
           <div class="lg:col-span-5">
-            <div class="relative rounded-3xl p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-cyan-500 shadow-2xl">
+            <div class="tilt-card spotlight-card relative rounded-3xl p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-cyan-500 shadow-2xl">
               <div class="rounded-[22px] bg-slate-900 p-6 space-y-6 text-white overflow-hidden">
                 
                 <!-- Mockup App Header Bar -->
@@ -278,27 +282,27 @@
           <!-- Right Philosophy Grid Cards -->
           <div class="lg:col-span-6 grid sm:grid-cols-2 gap-4">
             
-            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
-              <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 flex items-center justify-center mb-4 font-bold text-lg">01</div>
-              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Design with Intent</h4>
+            <div class="tilt-card spotlight-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 hover:shadow-xl hover:border-pink-500/50 transition-all duration-300 group">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 flex items-center justify-center mb-4 font-bold text-lg group-hover:scale-110 transition-transform">01</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-pink-500 transition-colors">Design with Intent</h4>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Every element, font choice, and margin exists for a clear communication goal.</p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
-              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-4 font-bold text-lg">02</div>
-              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Precision Layouts</h4>
+            <div class="tilt-card spotlight-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-4 font-bold text-lg group-hover:scale-110 transition-transform">02</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-purple-500 transition-colors">Precision Layouts</h4>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Rigorous grid systems that keep information clean, readable, and structured.</p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
-              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-4 font-bold text-lg">03</div>
-              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Story-Driven Visuals</h4>
+            <div class="tilt-card spotlight-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 hover:shadow-xl hover:border-indigo-500/50 transition-all duration-300 group">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-4 font-bold text-lg group-hover:scale-110 transition-transform">03</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-500 transition-colors">Story-Driven Visuals</h4>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Turning complex concepts into memorable visual narratives that resonate.</p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
-              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center mb-4 font-bold text-lg">04</div>
-              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Rapid Iteration</h4>
+            <div class="tilt-card spotlight-card p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 group">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center mb-4 font-bold text-lg group-hover:scale-110 transition-transform">04</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-500 transition-colors">Rapid Iteration</h4>
               <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Leveraging modern templates and Canva workflows for fast, high-quality turnarounds.</p>
             </div>
 

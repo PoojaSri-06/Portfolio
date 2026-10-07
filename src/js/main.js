@@ -5,6 +5,7 @@ import { initSandbox } from './sandbox.js';
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNavbar();
+  initCustomCursor();
   renderProjects('all');
   initProjectFilters();
   renderSkills();
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollEffects();
   initBeforeAfterSlider();
   initResumeModal();
+  initTiltAndSpotlight();
 });
 
 /* ==========================================================================
@@ -103,26 +105,36 @@ function renderProjects(filterCategory = 'all') {
 
     if (project.mediaType === 'video') {
       mediaHTML = `
-        <video class="w-full h-full object-cover" muted loop autoplay playsinline poster="/assets/images/porfilio image 1.png">
+        <video class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" muted loop autoplay playsinline poster="/assets/images/porfilio image 1.png">
           <source src="${project.videoSrc}" type="video/mp4">
         </video>
+        <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+          <div class="w-12 h-12 rounded-full bg-pink-600/90 text-white flex items-center justify-center shadow-lg backdrop-blur transform scale-75 group-hover:scale-100 transition-transform duration-300">
+            <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
       `;
     } else if (project.mediaType === 'pdf') {
       mediaHTML = `
         <div class="relative w-full h-full bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-900 flex flex-col items-center justify-center p-6 text-center text-white border-b border-slate-800">
-          <div class="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-3 shadow-lg">
+          <div class="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9h3m-3 4h6m-6 4h4"/>
             </svg>
           </div>
-          <h4 class="text-base font-extrabold text-white mb-1">Presentation Deck Preview</h4>
+          <h4 class="text-base font-extrabold text-white mb-1 group-hover:text-pink-400 transition-colors">Presentation Deck Preview</h4>
           <p class="text-xs text-slate-300">Click below to view full PDF</p>
         </div>
       `;
     } else if (project.image) {
       mediaHTML = `
-        <img src="${project.image}" alt="${project.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <img src="${project.image}" alt="${project.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+        <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+          <span class="px-4 py-2 rounded-full bg-white/90 dark:bg-slate-900/90 text-slate-900 dark:text-white text-xs font-bold shadow-lg backdrop-blur transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            Click for Case Study ✨
+          </span>
+        </div>
       `;
     } else {
       mediaHTML = project.bannerSvg || '';
@@ -134,7 +146,7 @@ function renderProjects(filterCategory = 'all') {
           href="${project.pdfSrc}" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-pink-600 hover:bg-pink-700 text-white transition-all duration-200 shadow-md">
+          class="btn-shine w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-pink-600 hover:bg-pink-700 text-white transition-all duration-300 shadow-md hover:scale-[1.02] active:scale-95">
           <span>Open PDF Presentation</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         </a>
@@ -142,24 +154,24 @@ function renderProjects(filterCategory = 'all') {
       : `
         <button 
           data-project-id="${project.id}" 
-          class="open-modal-btn w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-slate-900 hover:bg-pink-600 text-white dark:bg-slate-800 dark:hover:bg-pink-600 dark:text-white transition-all duration-200 shadow-sm">
+          class="btn-shine open-modal-btn w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-slate-900 hover:bg-pink-600 text-white dark:bg-slate-800 dark:hover:bg-pink-600 dark:text-white transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-95">
           <span>${project.mediaType === 'video' ? 'Play Video Reel' : 'View Project Case Study'}</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
       `;
 
     return `
-      <article class="group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-300 flex flex-col">
+      <article class="tilt-card spotlight-card group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-2xl hover:border-pink-500/50 dark:hover:border-pink-500/50 transition-all duration-300 flex flex-col">
         <!-- Media Container -->
         <div class="relative h-60 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
           ${mediaHTML}
           <div class="absolute top-4 left-4 z-10">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-black/70 backdrop-blur-md text-white border border-white/20">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-black/75 backdrop-blur-md text-white border border-white/20 shadow-md">
               ${project.category}
             </span>
           </div>
           <div class="absolute top-4 right-4 z-10">
-            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-pink-500/90 text-white shadow-md">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-pink-500/90 text-white shadow-md group-hover:scale-105 transition-transform">
               ${project.metrics}
             </span>
           </div>
@@ -184,7 +196,7 @@ function renderProjects(filterCategory = 'all') {
             <!-- Tools & Tech Pills -->
             <div class="flex flex-wrap gap-1.5 mb-5">
               ${project.tools.map(tool => `
-                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 group-hover:border-pink-500/30 transition-colors">
                   ${tool}
                 </span>
               `).join('')}
@@ -199,6 +211,7 @@ function renderProjects(filterCategory = 'all') {
   }).join('');
 
   attachModalListeners();
+  initTiltAndSpotlight();
 }
 
 function initProjectFilters() {
@@ -410,12 +423,12 @@ function renderSkills() {
   };
 
   container.innerHTML = skillsData.map(skill => `
-    <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-pink-500/50 transition-all shadow-sm hover:shadow-lg flex flex-col justify-between group">
+    <div class="tilt-card spotlight-card p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-pink-500/50 transition-all shadow-sm hover:shadow-2xl flex flex-col justify-between group">
       <div>
-        <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+        <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300 shadow-md">
           ${iconSvgMap[skill.icon] || ''}
         </div>
-        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">${skill.category}</h3>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-pink-500 transition-colors">${skill.category}</h3>
         <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
           ${skill.description}
         </p>
@@ -425,16 +438,16 @@ function renderSkills() {
         <div class="mb-4">
           <div class="flex justify-between items-center text-xs font-semibold mb-1">
             <span class="text-slate-500 dark:text-slate-400">Proficiency</span>
-            <span class="text-pink-600 dark:text-pink-400">${skill.level}%</span>
+            <span class="text-pink-600 dark:text-pink-400 font-bold">${skill.level}%</span>
           </div>
-          <div class="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-            <div class="h-full rounded-full bg-gradient-to-r from-pink-500 to-purple-600 transition-all duration-1000" style="width: ${skill.level}%"></div>
+          <div class="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden p-0.5">
+            <div class="h-full rounded-full shimmer-bar transition-all duration-1000 shadow-sm" style="width: ${skill.level}%"></div>
           </div>
         </div>
 
         <div class="flex flex-wrap gap-1.5">
           ${skill.tools.map(t => `
-            <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300">
+            <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 group-hover:border-pink-500/30 border border-slate-200 dark:border-slate-700 transition-colors">
               ${t}
             </span>
           `).join('')}
@@ -442,6 +455,8 @@ function renderSkills() {
       </div>
     </div>
   `).join('');
+
+  initTiltAndSpotlight();
 }
 
 /* ==========================================================================
@@ -486,7 +501,7 @@ function initContactForm() {
       return;
     }
 
-    showToast(`Thank you, ${name}! Your message has been sent successfully.`, 'success');
+    showToast(`Thank you, ${name}! Your message has been sent successfully. ✨`, 'success');
     form.reset();
   });
 }
@@ -497,7 +512,7 @@ function showToast(msg, type = 'success') {
 
   toast.textContent = msg;
   toast.className = `fixed bottom-8 right-8 z-50 px-6 py-3.5 rounded-xl shadow-2xl font-semibold text-sm transition-all duration-300 transform translate-y-0 ${
-    type === 'success' ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'
+    type === 'success' ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white' : 'bg-rose-600 text-white'
   }`;
 
   setTimeout(() => {
@@ -535,4 +550,82 @@ function initScrollEffects() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+}
+
+/* ==========================================================================
+   9. Custom Cursor & Interactive Pointer Follower
+   ========================================================================== */
+function initCustomCursor() {
+  const cursorDot = document.getElementById('custom-cursor-dot');
+  const cursorRing = document.getElementById('custom-cursor-ring');
+
+  if (!cursorDot || !cursorRing) return;
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let ringX = mouseX;
+  let ringY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+  });
+
+  function renderRing() {
+    ringX += (mouseX - ringX) * 0.18;
+    ringY += (mouseY - ringY) * 0.18;
+    cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(renderRing);
+  }
+  requestAnimationFrame(renderRing);
+
+  // Attach hover state triggers for interactive elements
+  const updateInteractiveListeners = () => {
+    const interactives = document.querySelectorAll('a, button, input, select, textarea, .tilt-card, .swatch-btn, .nav-link, .filter-btn');
+    interactives.forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('hovering-link'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('hovering-link'));
+    });
+  };
+
+  updateInteractiveListeners();
+  
+  // Re-attach listeners when dynamic content renders
+  const observer = new MutationObserver(updateInteractiveListeners);
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+/* ==========================================================================
+   10. 3D Tilt Card & Mouse Spotlight Dynamics
+   ========================================================================== */
+function initTiltAndSpotlight() {
+  const cards = document.querySelectorAll('.tilt-card, .spotlight-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Update spotlight CSS variable position
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      if (card.classList.contains('tilt-card')) {
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5; // max 5 deg
+        const rotateY = ((x - centerX) / centerX) * 5; // max 5 deg
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (card.classList.contains('tilt-card')) {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      }
+    });
+  });
 }

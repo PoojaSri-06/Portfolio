@@ -107,14 +107,34 @@ export function initSandbox() {
       previewBtn.style.color = "#FFFFFF";
     }
 
-    // Render swatches
+    // Render swatches with interactive click to copy
     if (colorSwatchesContainer) {
       colorSwatchesContainer.innerHTML = p.swatches.map(color => `
-        <div class="flex flex-col items-center gap-1 group/swatch">
-          <div class="w-10 h-10 rounded-xl shadow-md border border-white/20 transition-transform group-hover/swatch:scale-110 duration-200" style="background-color: ${color}"></div>
-          <span class="text-[10px] font-mono opacity-80 uppercase tracking-tighter">${color}</span>
-        </div>
+        <button 
+          data-color="${color}" 
+          title="Click to copy ${color}" 
+          class="swatch-btn flex flex-col items-center gap-1 group/swatch cursor-pointer transition-transform hover:scale-110 active:scale-95 focus:outline-none">
+          <div class="w-10 h-10 rounded-xl shadow-md border border-white/20 transition-transform group-hover/swatch:scale-110 duration-200 group-hover/swatch:shadow-pink-500/30" style="background-color: ${color}"></div>
+          <span class="text-[10px] font-mono opacity-80 uppercase tracking-tighter group-hover/swatch:text-pink-400 group-hover/swatch:opacity-100 transition-colors">${color}</span>
+        </button>
       `).join('');
+
+      colorSwatchesContainer.querySelectorAll('.swatch-btn').forEach(swatch => {
+        swatch.addEventListener('click', () => {
+          const color = swatch.dataset.color;
+          if (color) {
+            navigator.clipboard.writeText(color);
+            const toast = document.getElementById('contact-toast');
+            if (toast) {
+              toast.textContent = `Copied ${color} to clipboard! ✨`;
+              toast.className = 'fixed bottom-8 right-8 z-50 px-6 py-3.5 rounded-xl shadow-2xl font-semibold text-sm transition-all duration-300 transform translate-y-0 bg-gradient-to-r from-pink-600 to-purple-600 text-white';
+              setTimeout(() => {
+                toast.className = 'fixed bottom-8 right-8 z-50 px-6 py-3.5 rounded-xl shadow-2xl font-semibold text-sm transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none';
+              }, 2500);
+            }
+          }
+        });
+      });
     }
   }
 

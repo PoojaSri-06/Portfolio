@@ -14,6 +14,8 @@
   --text-color-dark: #F8FAFC;
   --accent-pink: #EC4899;
   --accent-purple: #8B5CF6;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 html {
@@ -24,6 +26,7 @@ body {
   background-color: var(--bg-color-light);
   color: var(--text-color-light);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
 }
 
 html.dark body {
@@ -36,31 +39,136 @@ h1, h2, h3, h4, .font-heading {
   font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
 }
 
+/* Custom Interactive Glowing Cursor */
+#custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #EC4899;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 0 12px #EC4899;
+}
+
+#custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(236, 72, 153, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+/* Hover State for Cursor when hovering interactive items */
+body.hovering-link #custom-cursor-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #8B5CF6;
+  box-shadow: 0 0 18px #8B5CF6;
+}
+
+body.hovering-link #custom-cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(139, 92, 246, 0.8);
+  background-color: rgba(236, 72, 153, 0.1);
+  backdrop-filter: blur(2px);
+}
+
 /* Glassmorphism Effect */
 .glass-nav {
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 html.dark .glass-nav {
   background: rgba(9, 13, 22, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 html.dark .glass-card {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+/* 3D Tilt Card & Interactive Mouse Spotlight Glow */
+.tilt-card {
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.spotlight-card {
+  position: relative;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(236, 72, 153, 0.6), rgba(139, 92, 246, 0.3), transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Button Shimmer Sweep Effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.8s ease-in-out;
+  pointer-events: none;
+}
+
+.btn-shine:hover::after {
+  transform: rotate(30deg) translateX(100%);
 }
 
 /* Custom Scrollbar */
@@ -83,17 +191,39 @@ html.dark .glass-card {
 
 /* Dialog Backdrop Styling */
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Animations */
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.05); }
+  50% { opacity: 0.65; transform: scale(1.08); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 .animate-pulse-slow {
   animation: pulse-slow 8s infinite ease-in-out;
 }
+
+.animate-float {
+  animation: float-gentle 4s infinite ease-in-out;
+}
+
+/* Shimmer Progress Bar Animation */
+@keyframes shimmer-move {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-bar {
+  background: linear-gradient(90deg, #EC4899 0%, #C084FC 50%, #EC4899 100%);
+  background-size: 200% 100%;
+  animation: shimmer-move 3s infinite linear;
+}
+
