@@ -77,14 +77,15 @@
       <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-7 text-sm font-semibold">
         <a href="#about" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">About</a>
+        <a href="#resume" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Resume</a>
         <a href="#transformation" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Before/After</a>
         <a href="#projects" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Projects</a>
         <a href="#skills" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Skills</a>
         <a href="#sandbox" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Studio</a>
         
-        <button id="open-resume-btn" class="px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-pink-500 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all">
-          Resume
-        </button>
+        <a href="/assets/pdfs/Pooja_Resume%20graphic.pdf" target="_blank" class="px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-pink-500 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all hover:scale-105">
+          Resume PDF 📄
+        </a>
 
         <a href="#contact" class="px-5 py-2.5 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow-md shadow-pink-500/20 hover:shadow-lg transition-all duration-300">
           Contact Me
@@ -112,11 +113,12 @@
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="hidden md:hidden flex-col px-6 pb-6 pt-2 bg-slate-50 dark:bg-[#090D16] border-b border-slate-200 dark:border-slate-800 gap-4 text-base font-semibold">
       <a href="#about" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">About</a>
+      <a href="#resume" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Resume</a>
       <a href="#transformation" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Before / After</a>
       <a href="#projects" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Projects</a>
       <a href="#skills" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Skills</a>
       <a href="#sandbox" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Design Studio</a>
-      <button onclick="document.getElementById('resume-modal').showModal()" class="text-left text-pink-600 dark:text-pink-400 font-bold py-1">View Resume</button>
+      <a href="/assets/pdfs/Pooja_Resume%20graphic.pdf" target="_blank" class="text-left text-pink-600 dark:text-pink-400 font-bold py-1">View Resume PDF</a>
       <a href="#contact" class="nav-link px-5 py-3 rounded-xl bg-pink-600 text-center text-white font-semibold shadow-md">Contact Me</a>
     </div>
   </header>
@@ -169,8 +171,8 @@
                 <span>Explore My Work</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
               </a>
-              <a href="/assets/pdfs/Template-Based Presentation.pdf" target="_blank" download class="btn-shine inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95">
-                <span>Download PDF Deck</span>
+              <a href="/assets/pdfs/Pooja_Resume%20graphic.pdf" target="_blank" class="btn-shine inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95">
+                <span>View / Download Resume</span>
                 <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               </a>
             </div>
@@ -315,77 +317,143 @@
 
 
     <!-- ==========================================================================
-         INTERACTIVE BEFORE / AFTER DESIGN COMPARISON SLIDER
+         DEDICATED RESUME & PROFESSIONAL PROFILE SECTION
+         ========================================================================== -->
+    <section id="resume" class="py-20 bg-slate-100/70 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="tilt-card spotlight-card rounded-3xl bg-white dark:bg-slate-900 p-8 sm:p-12 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 via-purple-500/10 to-transparent pointer-events-none rounded-bl-full"></div>
+
+          <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            <div class="lg:col-span-8 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">
+                <span>Professional Resume</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                Pooja Potti
+              </h2>
+              <p class="text-lg font-bold text-pink-600 dark:text-pink-400">
+                Graphic Designer • Creative Designer • Social Media Content Designer
+              </p>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed max-w-2xl">
+                Creative and detail-oriented Graphic Designer with a strong background in visual content, branding, promotional posters, presentation pitch decks, business card concepts, and video reel editing using Canva and CapCut.
+              </p>
+
+              <!-- Technical Skill Tags from Resume -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Canva</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">CapCut Video</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Poster &amp; Banner Design</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Presentation Decks</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">Business Card Design</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">HTML / CSS / JS</span>
+              </div>
+            </div>
+
+            <!-- Resume Action Buttons -->
+            <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4 justify-center items-stretch">
+              <a href="/assets/pdfs/Pooja_Resume%20graphic.pdf" target="_blank" class="btn-shine inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-sm shadow-xl shadow-pink-500/20 transition-all duration-300 hover:scale-[1.03] active:scale-95 text-center">
+                <span>View Full PDF Resume</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+
+              <a href="/assets/pdfs/Pooja_Resume%20graphic.pdf" download target="_blank" class="btn-shine inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700 font-bold text-sm border border-slate-700 shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-95 text-center">
+                <span>Download Resume (.pdf)</span>
+                <svg class="w-4 h-4 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         INTERACTIVE BEFORE / AFTER DESIGN COMPARISON SLIDER (CURTAIN REVEAL)
          ========================================================================== -->
     <section id="transformation" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-14">
         <span class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20 mb-3">
-          Design Impact
+          Interactive Design Impact
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Visual Transformation: Before &amp; After
         </h2>
         <p class="text-slate-600 dark:text-slate-300 text-sm mt-3">
-          Drag the slider handle to see how professional layout hierarchy, typography contrast, and color balance elevate raw information into a high-converting brand asset.
+          Hover or drag your cursor left and right across the card to reveal the dramatic redesign transformation.
         </p>
       </div>
 
-      <!-- Before / After Slider Container -->
-      <div class="relative w-full max-w-4xl mx-auto h-[400px] sm:h-[480px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 select-none" id="before-after-slider">
+      <!-- Before / After Curtain Reveal Slider Container -->
+      <div class="tilt-card spotlight-card relative w-full max-w-4xl mx-auto h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-950 select-none group" id="before-after-slider">
         
-        <!-- AFTER Image Layer (Full Background) -->
-        <div class="absolute inset-0 w-full h-full bg-slate-900 p-8 sm:p-12 flex flex-col justify-between text-white">
-          <div class="flex justify-between items-center">
-            <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-pink-600 text-white shadow-md">
-              AFTER: Bhavani's Redesign
+        <!-- AFTER Image Layer (Bottom / Full Background) -->
+        <div class="absolute inset-0 w-full h-full bg-slate-950 p-8 sm:p-12 flex flex-col justify-between text-white border border-pink-500/30 rounded-3xl overflow-hidden">
+          
+          <!-- Subtle Floating Background Gradient -->
+          <div class="absolute -right-20 -top-20 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="flex justify-between items-center relative z-10">
+            <span class="px-3 py-1.5 rounded-lg text-xs font-extrabold uppercase tracking-wider bg-pink-600 text-white shadow-lg border border-pink-400/40 transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+              AFTER: Bhavani's Redesign ✨
             </span>
-            <span class="text-xs font-mono text-emerald-400 font-semibold">+140% Conversion &amp; Clarity</span>
+            <span class="text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">
+              +140% Readability &amp; Impact
+            </span>
           </div>
-          <div class="max-w-lg space-y-4">
-            <span class="text-xs font-mono text-pink-400 tracking-widest uppercase">Executive Deck Slide</span>
-            <h3 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+
+          <div class="max-w-lg space-y-4 relative z-10">
+            <span class="text-xs font-mono text-pink-400 tracking-widest uppercase font-bold">Executive Slide Master</span>
+            <h3 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight text-white">
               Empowering Digital Growth with High-Impact Visual Systems
             </h3>
             <p class="text-slate-300 text-sm leading-relaxed">
-              Structured 3-column information grid with high WCAG contrast ratios, custom iconography, and focused callouts for rapid scanning.
+              Structured multi-column information grid with calibrated WCAG contrast, custom typography scale, and intentional white-space balance for instant scanning.
             </p>
           </div>
-          <div class="flex gap-4">
-            <div class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-xs font-bold">100% Readable</div>
-            <div class="px-4 py-2 rounded-xl bg-pink-500/20 backdrop-blur border border-pink-500/30 text-xs font-bold text-pink-300">Modern Canva Kit</div>
+
+          <div class="flex gap-3 relative z-10">
+            <div class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-xs font-bold text-white shadow-sm">100% Visual Hierarchy</div>
+            <div class="px-4 py-2 rounded-xl bg-pink-500/20 backdrop-blur border border-pink-500/30 text-xs font-bold text-pink-300 shadow-sm">Swiss Grid Layout</div>
           </div>
         </div>
 
-        <!-- BEFORE Image Layer (Clipped Foreground) -->
-        <div id="before-layer" class="absolute inset-y-0 left-0 w-1/2 bg-slate-200 text-slate-800 p-8 sm:p-12 flex flex-col justify-between overflow-hidden border-r-2 border-white shadow-xl transition-all">
+        <!-- BEFORE Image Layer (Top / Clipped Foreground) -->
+        <div id="before-layer" class="absolute inset-y-0 left-0 w-1/2 bg-slate-200 text-slate-800 p-8 sm:p-12 flex flex-col justify-between overflow-hidden border-r-2 border-white shadow-2xl transition-all duration-75">
           <div class="w-[800px] sm:w-[900px] h-full flex flex-col justify-between">
             <div class="flex justify-between items-center">
-              <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-slate-700 text-white">
-                BEFORE: Raw Unstructured Draft
+              <span class="px-3 py-1.5 rounded-lg text-xs font-extrabold uppercase tracking-wider bg-slate-800 text-slate-200 shadow-md transition-opacity duration-300 opacity-90 group-hover:opacity-100">
+                BEFORE: Raw Unstructured Draft ⚠️
               </span>
             </div>
+
             <div class="max-w-lg space-y-3">
-              <span class="text-xs text-slate-500">Unformatted Text Slide</span>
-              <h3 class="text-2xl font-serif text-slate-700">
+              <span class="text-xs text-slate-500 font-mono">Unformatted Plain Text</span>
+              <h3 class="text-2xl font-serif text-slate-800 font-bold">
                 Digital Growth Presentation Slide Header
               </h3>
               <p class="text-xs text-slate-600 leading-normal">
-                Generic unaligned text block without clear font hierarchy, low contrast, no color strategy, and crowded bullet points that confuse readers.
+                Generic unaligned text block without clear font hierarchy, low contrast ratios, no color strategy, and crowded bullet points that confuse executive viewers.
               </p>
             </div>
+
             <div class="flex gap-2">
-              <span class="text-xs text-rose-600 font-bold">Low Engagement</span>
+              <span class="text-xs text-rose-600 font-bold bg-rose-100 px-3 py-1 rounded-md border border-rose-300">Poor Viewer Retention</span>
             </div>
           </div>
         </div>
 
-        <!-- Interactive Range Slider Input Overlay -->
-        <input type="range" min="0" max="100" value="50" id="slider-range-input" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" aria-label="Before and after comparison slider">
+        <!-- Interactive Range Slider Input Overlay for Click & Drag -->
+        <input type="range" min="0" max="100" value="50" id="slider-range-input" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" aria-label="Before and after comparison curtain slider">
 
-        <!-- Visual Divider Line & Handle Icon -->
-        <div id="slider-divider" class="absolute top-0 bottom-0 left-1/2 w-1 bg-white shadow-2xl pointer-events-none z-20 -translate-x-1/2 flex items-center justify-center">
-          <div class="w-10 h-10 rounded-full bg-pink-600 text-white shadow-xl flex items-center justify-center border-2 border-white text-xs font-bold">
-            &#10094;&#10095;
+        <!-- Visual Slider Divider Line & Handle Icon -->
+        <div id="slider-divider" class="absolute top-0 bottom-0 left-1/2 w-1 bg-white shadow-[0_0_15px_rgba(236,72,153,0.8)] pointer-events-none z-20 -translate-x-1/2 flex items-center justify-center">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-2xl flex items-center justify-center border-2 border-white text-sm font-black transition-transform group-hover:scale-110">
+            &#8596;
           </div>
         </div>
 
@@ -456,68 +524,6 @@
     </section>
 
 
-    <!-- ==========================================================================
-         CLIENT TESTIMONIALS & FEEDBACK SECTION
-         ========================================================================== -->
-    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <h2 class="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest mb-3">Testimonials</h2>
-        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          What Clients &amp; Collaborators Say
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        
-        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="flex text-amber-400 gap-1 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
-              "Bhavani transformed our raw startup outline into a 25-slide executive pitch deck that secured key investor meetings. Her eye for layout structure and Canva templates is unmatched!"
-            </p>
-          </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-pink-500/20 text-pink-500 font-bold flex items-center justify-center text-sm">AM</div>
-            <div>
-              <h4 class="text-sm font-bold text-slate-900 dark:text-white">Ananya Mehta</h4>
-              <span class="text-xs text-slate-500 dark:text-slate-400">Founder, Luminary Media</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="flex text-amber-400 gap-1 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
-              "Our Instagram engagement shot up by 140% after implementing Bhavani's modular social media grid system. The templates are easy for our team to re-use every week."
-            </p>
-          </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-500 font-bold flex items-center justify-center text-sm">RK</div>
-            <div>
-              <h4 class="text-sm font-bold text-slate-900 dark:text-white">Rohan Kapoor</h4>
-              <span class="text-xs text-slate-500 dark:text-slate-400">Marketing Lead, Apex Ventures</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="flex text-amber-400 gap-1 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
-              "Working with Bhavani on our mascot and brand identity suite was a smooth, highly professional experience. She combines technical precision with deep artistic creativity."
-            </p>
-          </div>
-          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-500 font-bold flex items-center justify-center text-sm">PS</div>
-            <div>
-              <h4 class="text-sm font-bold text-slate-900 dark:text-white">Priya Sharma</h4>
-              <span class="text-xs text-slate-500 dark:text-slate-400">Creative Director, Nova Byte</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </section>
 
 
@@ -800,10 +806,10 @@
       </div>
 
       <div class="pt-4 flex gap-3 border-t border-slate-200 dark:border-slate-800">
-        <a href="/assets/pdfs/Template-Based Presentation.pdf" target="_blank" download class="flex-1 text-center py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold hover:bg-slate-800 transition-all text-sm">
-          Download PDF Presentation
+        <a href="/assets/pdfs/Pooja_Resume%20graphic.pdf" target="_blank" download class="btn-shine flex-1 text-center py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold hover:bg-slate-800 transition-all text-sm shadow-md">
+          Download Resume PDF
         </a>
-        <button onclick="document.getElementById('resume-modal').close()" class="flex-1 py-3 rounded-xl bg-pink-600 text-white font-semibold hover:bg-pink-700 transition-all text-sm">
+        <button onclick="document.getElementById('resume-modal').close()" class="btn-shine flex-1 py-3 rounded-xl bg-pink-600 text-white font-semibold hover:bg-pink-700 transition-all text-sm shadow-md">
           Close Preview
         </button>
       </div>

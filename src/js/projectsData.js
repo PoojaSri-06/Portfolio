@@ -38,6 +38,7 @@ export const projectsData = [
     metrics: "PDF Slide Deck",
     client: "Professional Deck Design",
     year: "2026",
+    image: "/assets/images/presentation-preview.png",
     pdfSrc: "/assets/pdfs/Template-Based Presentation.pdf",
     mediaType: "pdf",
     details: [

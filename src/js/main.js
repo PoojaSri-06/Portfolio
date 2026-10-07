@@ -116,15 +116,22 @@ function renderProjects(filterCategory = 'all') {
       `;
     } else if (project.mediaType === 'pdf') {
       mediaHTML = `
-        <div class="relative w-full h-full bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-900 flex flex-col items-center justify-center p-6 text-center text-white border-b border-slate-800">
-          <div class="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9h3m-3 4h6m-6 4h4"/>
-            </svg>
+        <div class="relative w-full h-full overflow-hidden bg-slate-900 group/pdf">
+          <img src="${project.image || '/assets/images/presentation-preview.png'}" alt="${project.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-between p-4">
+            <div class="flex justify-between items-center">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-pink-600/90 text-white backdrop-blur shadow-md">
+                PDF Slide Deck
+              </span>
+              <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center group-hover/pdf:scale-110 group-hover/pdf:bg-pink-500 transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </span>
+            </div>
+            <div class="text-white">
+              <span class="text-xs font-semibold text-pink-400 block font-mono">Template-Based Deck</span>
+              <span class="text-xs text-slate-300">Click button below to open full presentation</span>
+            </div>
           </div>
-          <h4 class="text-base font-extrabold text-white mb-1 group-hover:text-pink-400 transition-colors">Presentation Deck Preview</h4>
-          <p class="text-xs text-slate-300">Click below to view full PDF</p>
         </div>
       `;
     } else if (project.image) {
@@ -463,20 +470,47 @@ function renderSkills() {
    6. Before / After Comparison Slider Logic
    ========================================================================== */
 function initBeforeAfterSlider() {
+  const container = document.getElementById('before-after-slider');
   const rangeInput = document.getElementById('slider-range-input');
   const beforeLayer = document.getElementById('before-layer');
   const divider = document.getElementById('slider-divider');
 
-  if (!rangeInput || !beforeLayer || !divider) return;
+  if (!container || !rangeInput || !beforeLayer || !divider) return;
 
   function updateSlider(val) {
-    beforeLayer.style.width = `${val}%`;
-    divider.style.left = `${val}%`;
+    const clamped = Math.max(0, Math.min(100, val));
+    beforeLayer.style.width = `${clamped}%`;
+    divider.style.left = `${clamped}%`;
+    rangeInput.value = clamped;
   }
 
+  // Handle click & drag range input
   rangeInput.addEventListener('input', (e) => {
     updateSlider(e.target.value);
   });
+
+  // Handle smooth hover-based curtain reveal as mouse moves across card
+  let isHovered = false;
+  container.addEventListener('mouseenter', () => { isHovered = true; });
+  container.addEventListener('mouseleave', () => { isHovered = false; });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isHovered) return;
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const percentage = (x / rect.width) * 100;
+    updateSlider(percentage);
+  });
+
+  // Mobile Touch support
+  container.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      const rect = container.getBoundingClientRect();
+      const x = e.touches[0].clientX - rect.left;
+      const percentage = (x / rect.width) * 100;
+      updateSlider(percentage);
+    }
+  }, { passive: true });
 
   updateSlider(50);
 }
