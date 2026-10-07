@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potti Poojasri Lakshmi Bhavani | Visual & Graphic Designer Portfolio</title>
+  <meta name="description" content="Portfolio of Potti Poojasri Lakshmi Bhavani - Visual & Graphic Designer specializing in Canva, Brand Identity, Presentation Decks, and Social Media Assets.">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- FOUC Prevention Script for Dark/Light Theme -->
+  <script>
+    {
+      const storedTheme = localStorage.getItem("theme");
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+        document.querySelector('meta[name="color-scheme"]').content = 'dark';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.querySelector('meta[name="color-scheme"]').content = 'light';
+      }
+    }
+  </script>
+
+  <!-- Tailwind CSS CDN for instant rendering -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#EC4899',
+              purple: '#8B5CF6',
+              cyan: '#06B6D4',
+              dark: '#090D16'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body class="bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-300 antialiased selection:bg-pink-500 selection:text-white">
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 z-50 transition-all duration-150 w-0"></div>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="sticky top-0 z-40 w-full glass-nav border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Badge with Uploaded Logo Image -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-600 p-0.5 shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+          <img src="assets/images/porfilio image 1.png" alt="Bhavani Logo" class="w-full h-full object-cover rounded-[14px]">
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-lg leading-tight tracking-tight text-slate-900 dark:text-white group-hover:text-pink-500 transition-colors">
+            Potti Poojasri Lakshmi Bhavani
+          </span>
+          <span class="text-xs font-semibold text-pink-600 dark:text-pink-400 tracking-wide uppercase">
+            Visual &amp; Graphic Designer
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold">
+        <a href="#about" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">About</a>
+        <a href="#transformation" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Before/After</a>
+        <a href="#projects" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Projects</a>
+        <a href="#skills" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Skills</a>
+        <a href="#sandbox" class="nav-link text-slate-600 dark:text-slate-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">Studio</a>
+        
+        <button id="open-resume-btn" class="px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 hover:border-pink-500 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all">
+          Resume
+        </button>
+
+        <a href="#contact" class="px-5 py-2.5 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow-md shadow-pink-500/20 hover:shadow-lg transition-all duration-300">
+          Contact Me
+        </a>
+        
+        <!-- Dark/Light Theme Toggle Button -->
+        <button id="theme-toggle" aria-label="Toggle theme" class="p-2.5 rounded-full bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-pink-500 transition-all duration-200">
+          <svg id="theme-toggle-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg id="theme-toggle-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center gap-3">
+        <button id="theme-toggle-mobile" onclick="document.getElementById('theme-toggle').click()" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden flex-col px-6 pb-6 pt-2 bg-slate-50 dark:bg-[#090D16] border-b border-slate-200 dark:border-slate-800 gap-4 text-base font-semibold">
+      <a href="#about" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">About</a>
+      <a href="#transformation" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Before / After</a>
+      <a href="#projects" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Projects</a>
+      <a href="#skills" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Skills</a>
+      <a href="#sandbox" class="nav-link text-slate-700 dark:text-slate-200 hover:text-pink-500 py-1">Design Studio</a>
+      <button onclick="document.getElementById('resume-modal').showModal()" class="text-left text-pink-600 dark:text-pink-400 font-bold py-1">View Resume</button>
+      <a href="#contact" class="nav-link px-5 py-3 rounded-xl bg-pink-600 text-center text-white font-semibold shadow-md">Contact Me</a>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- ==========================================================================
+         HERO SECTION WITH REAL LOGO & MEDIA SHOWCASE
+         ========================================================================== -->
+    <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+      <!-- Background Ambient Glow Effects -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-pink-500/20 via-purple-600/20 to-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Intro Text -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Availability Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-pink-500/10 dark:bg-pink-500/20 border border-pink-500/30 text-pink-600 dark:text-pink-400 text-xs font-bold tracking-wider uppercase">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-pink-500"></span>
+              </span>
+              Available for Freelance &amp; Full-time Roles
+            </div>
+
+            <!-- Name Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-none">
+              Hi, I'm <br class="hidden sm:block"/>
+              <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+                Potti Poojasri Lakshmi Bhavani
+              </span>
+            </h1>
+
+            <!-- Professional Subtitle -->
+            <p class="text-xl sm:text-2xl font-bold text-slate-700 dark:text-slate-200">
+              Visual &amp; Graphic Designer • Brand Strategist
+            </p>
+
+            <!-- Tagline -->
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+              I transform strategic ideas into striking visual assets, engaging social media graphics, clean presentation decks, and memorable brand identities using Canva, layout architecture, and fine typography.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-4">
+              <a href="#projects" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-sm shadow-xl shadow-pink-500/25 transition-all duration-300 hover:scale-105">
+                <span>Explore My Work</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+              </a>
+              <a href="assets/pdfs/Template-Based Presentation.pdf" target="_blank" download class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold text-sm border border-slate-200 dark:border-slate-700 transition-all duration-300 shadow-sm">
+                <span>Download PDF Deck</span>
+                <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </a>
+            </div>
+
+            <!-- Quick Metrics Ticker -->
+            <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800/80 max-w-lg">
+              <div>
+                <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">50+</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Brand Assets Built</span>
+              </div>
+              <div>
+                <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">100%</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Client Satisfaction</span>
+              </div>
+              <div>
+                <span class="block text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Canva</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Power Specialist</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Designer Workbench Graphic Card with Video / Image Showcase -->
+          <div class="lg:col-span-5">
+            <div class="relative rounded-3xl p-1 bg-gradient-to-tr from-pink-500 via-purple-500 to-cyan-500 shadow-2xl">
+              <div class="rounded-[22px] bg-slate-900 p-6 space-y-6 text-white overflow-hidden">
+                
+                <!-- Mockup App Header Bar -->
+                <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-400">bhavani_design_studio.canva</span>
+                  <span class="text-xs font-semibold px-2 py-0.5 rounded bg-pink-500/20 text-pink-400 border border-pink-500/30">Active</span>
+                </div>
+
+                <!-- Live Media Video Preview Card -->
+                <div class="space-y-4">
+                  <div class="h-48 rounded-xl overflow-hidden relative border border-slate-700/60 shadow-lg">
+                    <video class="w-full h-full object-cover" muted loop autoplay playsinline poster="assets/images/porfilio image 1.png">
+                      <source src="assets/videos/video poetfolio.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur px-3 py-1 rounded-md text-[11px] font-bold text-white border border-white/20">
+                      Motion Video Reel
+                    </div>
+                  </div>
+
+                  <!-- Color Swatches Bar -->
+                  <div class="flex items-center justify-between pt-2">
+                    <span class="text-xs font-semibold text-slate-400">Brand Identity Assets:</span>
+                    <div class="flex items-center gap-2">
+                      <img src="assets/images/porfilio image 1.png" alt="Logo Thumb" class="w-7 h-7 rounded-lg object-cover border border-white/20">
+                      <span class="text-xs font-mono text-pink-400">porfilio image 1.png</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 flex items-center justify-between text-xs">
+                  <span class="text-slate-300 font-medium">Layout Grid System</span>
+                  <span class="text-emerald-400 font-bold">100% Pixel Precise</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         ABOUT ME SECTION
+         ========================================================================== -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest mb-3">About Me</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Connecting Technology with Visual Storytelling
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Bio Card -->
+          <div class="lg:col-span-6 space-y-6">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+              Hi, I'm Bhavani — a designer who thinks in grids, hierarchy, and purpose.
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              My background in technology paired with an innate eye for aesthetics allows me to approach visual design from a uniquely structured perspective. I don't just make graphics look pretty; I arrange information so it communicates clearly, engages the viewer, and delivers measurable value.
+            </p>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+              Whether crafting social media campaign grids in Canva, building high-stakes presentation decks for executives, or shaping full brand identity guidelines, I prioritize typography balance, intentional color harmony, and seamless brand consistency.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">Canva Power User</span>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">Brand Strategy</span>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">Presentation Design</span>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">Typography Enthusiast</span>
+            </div>
+          </div>
+
+          <!-- Right Philosophy Grid Cards -->
+          <div class="lg:col-span-6 grid sm:grid-cols-2 gap-4">
+            
+            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 flex items-center justify-center mb-4 font-bold text-lg">01</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Design with Intent</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Every element, font choice, and margin exists for a clear communication goal.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-4 font-bold text-lg">02</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Precision Layouts</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Rigorous grid systems that keep information clean, readable, and structured.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-4 font-bold text-lg">03</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Story-Driven Visuals</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Turning complex concepts into memorable visual narratives that resonate.</p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center mb-4 font-bold text-lg">04</div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Rapid Iteration</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Leveraging modern templates and Canva workflows for fast, high-quality turnarounds.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         INTERACTIVE BEFORE / AFTER DESIGN COMPARISON SLIDER
+         ========================================================================== -->
+    <section id="transformation" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20 mb-3">
+          Design Impact
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Visual Transformation: Before &amp; After
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm mt-3">
+          Drag the slider handle to see how professional layout hierarchy, typography contrast, and color balance elevate raw information into a high-converting brand asset.
+        </p>
+      </div>
+
+      <!-- Before / After Slider Container -->
+      <div class="relative w-full max-w-4xl mx-auto h-[400px] sm:h-[480px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 select-none" id="before-after-slider">
+        
+        <!-- AFTER Image Layer (Full Background) -->
+        <div class="absolute inset-0 w-full h-full bg-slate-900 p-8 sm:p-12 flex flex-col justify-between text-white">
+          <div class="flex justify-between items-center">
+            <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-pink-600 text-white shadow-md">
+              AFTER: Bhavani's Redesign
+            </span>
+            <span class="text-xs font-mono text-emerald-400 font-semibold">+140% Conversion &amp; Clarity</span>
+          </div>
+          <div class="max-w-lg space-y-4">
+            <span class="text-xs font-mono text-pink-400 tracking-widest uppercase">Executive Deck Slide</span>
+            <h3 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+              Empowering Digital Growth with High-Impact Visual Systems
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Structured 3-column information grid with high WCAG contrast ratios, custom iconography, and focused callouts for rapid scanning.
+            </p>
+          </div>
+          <div class="flex gap-4">
+            <div class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-xs font-bold">100% Readable</div>
+            <div class="px-4 py-2 rounded-xl bg-pink-500/20 backdrop-blur border border-pink-500/30 text-xs font-bold text-pink-300">Modern Canva Kit</div>
+          </div>
+        </div>
+
+        <!-- BEFORE Image Layer (Clipped Foreground) -->
+        <div id="before-layer" class="absolute inset-y-0 left-0 w-1/2 bg-slate-200 text-slate-800 p-8 sm:p-12 flex flex-col justify-between overflow-hidden border-r-2 border-white shadow-xl transition-all">
+          <div class="w-[800px] sm:w-[900px] h-full flex flex-col justify-between">
+            <div class="flex justify-between items-center">
+              <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-slate-700 text-white">
+                BEFORE: Raw Unstructured Draft
+              </span>
+            </div>
+            <div class="max-w-lg space-y-3">
+              <span class="text-xs text-slate-500">Unformatted Text Slide</span>
+              <h3 class="text-2xl font-serif text-slate-700">
+                Digital Growth Presentation Slide Header
+              </h3>
+              <p class="text-xs text-slate-600 leading-normal">
+                Generic unaligned text block without clear font hierarchy, low contrast, no color strategy, and crowded bullet points that confuse readers.
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <span class="text-xs text-rose-600 font-bold">Low Engagement</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Range Slider Input Overlay -->
+        <input type="range" min="0" max="100" value="50" id="slider-range-input" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" aria-label="Before and after comparison slider">
+
+        <!-- Visual Divider Line & Handle Icon -->
+        <div id="slider-divider" class="absolute top-0 bottom-0 left-1/2 w-1 bg-white shadow-2xl pointer-events-none z-20 -translate-x-1/2 flex items-center justify-center">
+          <div class="w-10 h-10 rounded-full bg-pink-600 text-white shadow-xl flex items-center justify-center border-2 border-white text-xs font-bold">
+            &#10094;&#10095;
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         FEATURED PROJECTS SECTION
+         ========================================================================== -->
+    <section id="projects" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <h2 class="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest mb-3">Portfolio</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Featured Visual &amp; Graphic Projects
+          </p>
+        </div>
+
+        <!-- Filter Tab Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <button data-filter="all" class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-pink-600 text-white shadow-md">
+            All
+          </button>
+          <button data-filter="social-media" class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+            Social Media Branding
+          </button>
+          <button data-filter="presentation" class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+            Presentation Decks
+          </button>
+          <button data-filter="brand-identity" class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+            Brand Identity
+          </button>
+          <button data-filter="visual-assets" class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+            Visual Assets
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Dynamic Project Cards Grid -->
+      <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- JS will populate cards dynamically -->
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================================================
+         SKILLS & TOOLS GRID SECTION
+         ========================================================================== -->
+    <section id="skills" class="py-24 bg-white dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800/80 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest mb-3">Skills &amp; Toolkit</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Design Proficiency &amp; Specialized Capabilities
+          </p>
+        </div>
+
+        <!-- Categorized Skills Cards Grid -->
+        <div id="skills-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- JS will populate skills dynamically -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         CLIENT TESTIMONIALS & FEEDBACK SECTION
+         ========================================================================== -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <h2 class="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest mb-3">Testimonials</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          What Clients &amp; Collaborators Say
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "Bhavani transformed our raw startup outline into a 25-slide executive pitch deck that secured key investor meetings. Her eye for layout structure and Canva templates is unmatched!"
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-pink-500/20 text-pink-500 font-bold flex items-center justify-center text-sm">AM</div>
+            <div>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-white">Ananya Mehta</h4>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Founder, Luminary Media</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "Our Instagram engagement shot up by 140% after implementing Bhavani's modular social media grid system. The templates are easy for our team to re-use every week."
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-500 font-bold flex items-center justify-center text-sm">RK</div>
+            <div>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-white">Rohan Kapoor</h4>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Marketing Lead, Apex Ventures</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400 gap-1 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+              "Working with Bhavani on our mascot and brand identity suite was a smooth, highly professional experience. She combines technical precision with deep artistic creativity."
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-500 font-bold flex items-center justify-center text-sm">PS</div>
+            <div>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-white">Priya Sharma</h4>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Creative Director, Nova Byte</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         INTERACTIVE VISUAL DESIGN STUDIO SANDBOX
+         ========================================================================== -->
+    <section id="sandbox" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 relative overflow-hidden border border-slate-800 shadow-2xl">
+        <div class="absolute -right-24 -top-24 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Sandbox Controls -->
+          <div class="lg:col-span-6 space-y-6">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400 border border-pink-500/30">
+              Interactive Showcase
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              Test Live Brand Palettes &amp; Font Pairings
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Experience my approach to visual identity customization. Click below to switch color harmonies and typographic pairings to see how brand elements adapt instantly.
+            </p>
+
+            <!-- Palette Selector Buttons -->
+            <div class="space-y-3">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Select Color Palette:</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button data-palette="modern" class="palette-btn p-3 rounded-xl border border-slate-700 bg-white/10 text-left text-xs font-semibold hover:border-pink-500 transition-all flex items-center justify-between">
+                  <span>Cyber Pink &amp; Navy</span>
+                  <div class="flex -space-x-1"><span class="w-3 h-3 rounded-full bg-pink-500"></span><span class="w-3 h-3 rounded-full bg-purple-500"></span></div>
+                </button>
+                <button data-palette="corporate" class="palette-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-left text-xs font-semibold hover:border-pink-500 transition-all flex items-center justify-between">
+                  <span>Executive Blue</span>
+                  <div class="flex -space-x-1"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="w-3 h-3 rounded-full bg-cyan-400"></span></div>
+                </button>
+                <button data-palette="warm" class="palette-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-left text-xs font-semibold hover:border-pink-500 transition-all flex items-center justify-between">
+                  <span>Warm Amber</span>
+                  <div class="flex -space-x-1"><span class="w-3 h-3 rounded-full bg-amber-500"></span><span class="w-3 h-3 rounded-full bg-orange-600"></span></div>
+                </button>
+                <button data-palette="emerald" class="palette-btn p-3 rounded-xl border border-slate-700 bg-slate-800 text-left text-xs font-semibold hover:border-pink-500 transition-all flex items-center justify-between">
+                  <span>Emerald &amp; Mint</span>
+                  <div class="flex -space-x-1"><span class="w-3 h-3 rounded-full bg-emerald-500"></span><span class="w-3 h-3 rounded-full bg-teal-400"></span></div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Font Selector Buttons -->
+            <div class="space-y-3 pt-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Select Typographic Pairing:</label>
+              <div class="flex gap-2">
+                <button data-font="jakarta" class="font-btn flex-1 p-2.5 rounded-xl border border-slate-700 bg-white/10 text-xs font-semibold">Plus Jakarta</button>
+                <button data-font="outfit" class="font-btn flex-1 p-2.5 rounded-xl border border-slate-700 bg-slate-800 text-xs font-semibold">Outfit Display</button>
+                <button data-font="mono" class="font-btn flex-1 p-2.5 rounded-xl border border-slate-700 bg-slate-800 text-xs font-mono">Monospace</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Live Dynamic Preview Card -->
+          <div class="lg:col-span-6">
+            <div id="sandbox-preview-card" class="rounded-2xl p-8 border-2 transition-all duration-300 shadow-2xl flex flex-col justify-between min-h-[360px]">
+              <div>
+                <span id="sandbox-preview-badge" class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider mb-4 border transition-colors">
+                  Brand Identity Preview
+                </span>
+                <h3 id="sandbox-preview-title" class="text-3xl font-extrabold transition-colors mb-3">
+                  Potti Poojasri Lakshmi Bhavani
+                </h3>
+                <p id="sandbox-preview-desc" class="text-sm opacity-90 leading-relaxed">
+                  Crafting high-impact social media assets, presentation decks, and visual brand identity systems tailored to your unique market positioning.
+                </p>
+              </div>
+
+              <div class="pt-6 space-y-4 border-t border-white/10">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono opacity-70">Color Palette Tokens:</span>
+                  <div id="sandbox-swatches" class="flex gap-2"></div>
+                </div>
+                <button id="sandbox-preview-btn" class="w-full py-3 rounded-xl font-bold text-sm shadow-lg transition-all duration-200">
+                  Explore Custom Identity Pack
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         CONTACT & FOOTER SECTION WITH UPDATED DIRECT MAIL
+         ========================================================================== -->
+    <section id="contact" class="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Left Info -->
+          <div class="lg:col-span-5 space-y-6">
+            <h2 class="text-xs font-bold text-pink-600 dark:text-pink-400 uppercase tracking-widest">Contact</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              Let's Create Something Remarkable Together.
+            </p>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm">
+              Have a branding project, social media campaign, or presentation deck that needs visual perfection? Send me a message, and let's bring your vision to life.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <span class="block text-xs text-slate-500 dark:text-slate-400">Direct Email</span>
+                  <a href="mailto:poojasrilakshmibhavani@gmail.com" class="text-sm font-bold text-slate-900 dark:text-white hover:text-pink-500 transition-colors">
+                    poojasrilakshmibhavani@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <span class="block text-xs text-slate-500 dark:text-slate-400">Location</span>
+                  <span class="text-sm font-bold text-slate-900 dark:text-white">
+                    India (Remote &amp; Global Availability)
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links with LinkedIn, GitHub, and Mail Icons -->
+            <div class="pt-4">
+              <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Connect On:</span>
+              <div class="flex items-center gap-3">
+                <!-- 1. LinkedIn Profile -->
+                <a href="https://www.linkedin.com/in/pooja-sri-b92638339?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="LinkedIn Profile" class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-pink-500 hover:scale-110 transition-all shadow-sm">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.54a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>
+                </a>
+                
+                <!-- 2. GitHub Profile -->
+                <a href="https://github.com/PoojaSri-06" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="GitHub Profile" class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-pink-500 hover:scale-110 transition-all shadow-sm">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+                </a>
+                
+                <!-- 3. Direct Email Icon -->
+                <a href="mailto:poojasrilakshmibhavani@gmail.com" title="Email Me Directly" aria-label="Email Me Directly" class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-pink-500 hover:scale-110 transition-all shadow-sm">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contact Form -->
+          <div class="lg:col-span-7">
+            <form id="contact-form" class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-6">
+              
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your Name *</label>
+                  <input type="text" name="name" required placeholder="Jane Doe" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Your Email *</label>
+                  <input type="email" name="email" required placeholder="jane@example.com" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Project Type</label>
+                <select name="category" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+                  <option value="Social Media Campaign">Social Media Campaign &amp; Canva Grid</option>
+                  <option value="Presentation Pitch Deck">Presentation &amp; Pitch Deck</option>
+                  <option value="Brand Identity Suite">Brand Identity &amp; Mascot Design</option>
+                  <option value="Visual Assets & Collateral">Visual Assets &amp; Graphic Materials</option>
+                  <option value="Other Design Request">Other Custom Design Inquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Message *</label>
+                <textarea name="message" rows="5" required placeholder="Tell me about your project goals, timelines, and deliverables..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold text-base shadow-lg shadow-pink-500/25 transition-all duration-300 hover:scale-[1.01]">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="py-8 bg-slate-100 dark:bg-[#060911] border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        &copy; 2026 <strong>Potti Poojasri Lakshmi Bhavani</strong>. All rights reserved.
+      </div>
+      <div class="flex items-center gap-6 font-medium">
+        <a href="#about" class="hover:text-pink-500 transition-colors">About</a>
+        <a href="#projects" class="hover:text-pink-500 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-pink-500 transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-pink-500 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back To Top Button -->
+  <button id="back-to-top" aria-label="Back to top" class="fixed bottom-8 right-8 z-40 p-3 rounded-full bg-pink-600 text-white shadow-xl opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-pink-500 hover:scale-110">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m7-7v18"/></svg>
+  </button>
+
+  <!-- Project Details Case Study Modal (<dialog>) -->
+  <dialog id="project-modal" class="rounded-3xl p-0 w-full max-w-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl backdrop:bg-black/70">
+    <div class="relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+      <button id="close-modal-btn" aria-label="Close modal" class="absolute top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-pink-500 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div id="modal-dynamic-content">
+        <!-- JS populates case study details dynamically -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Resume Preview Modal (<dialog>) -->
+  <dialog id="resume-modal" class="rounded-3xl p-0 w-full max-w-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl backdrop:bg-black/70">
+    <div class="relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto space-y-6">
+      <button onclick="document.getElementById('resume-modal').close()" aria-label="Close resume" class="absolute top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-pink-500 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex items-center gap-4">
+        <img src="assets/images/porfilio image 1.png" alt="Bhavani Profile Logo" class="w-16 h-16 rounded-2xl object-cover border border-slate-700 shadow">
+        <div>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Potti Poojasri Lakshmi Bhavani</h2>
+          <p class="text-sm font-semibold text-pink-600 dark:text-pink-400">Visual &amp; Graphic Designer • Brand Strategist</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">poojasrilakshmibhavani@gmail.com • Remote / Global</p>
+        </div>
+      </div>
+
+      <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Executive Summary</h3>
+          <p class="leading-relaxed">
+            Tech-savvy Visual &amp; Graphic Designer skilled in creating high-conversion social media grids, executive pitch decks, brand mascot assets, and structured graphic layouts using Canva Pro, Photoshop, Illustrator, and Swiss grid systems.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Core Competencies</h3>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 font-semibold">• Canva Pro &amp; Template Kits</div>
+            <div class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 font-semibold">• Presentation &amp; Pitch Decks</div>
+            <div class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 font-semibold">• Brand Guidelines &amp; Mascot Art</div>
+            <div class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 font-semibold">• Swiss Grid &amp; Information Hierarchy</div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Key Highlights</h3>
+          <ul class="space-y-1 text-xs list-disc list-inside">
+            <li>Designed 50+ re-usable Canva brand asset kits with 100% client satisfaction.</li>
+            <li>Crafted 25+ slide executive pitch decks raising startup investment rounds.</li>
+            <li>Achieved +140% social media engagement lift through cohesive Instagram grid systems.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-4 flex gap-3 border-t border-slate-200 dark:border-slate-800">
+        <a href="assets/pdfs/Template-Based Presentation.pdf" target="_blank" download class="flex-1 text-center py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold hover:bg-slate-800 transition-all text-sm">
+          Download PDF Presentation
+        </a>
+        <button onclick="document.getElementById('resume-modal').close()" class="flex-1 py-3 rounded-xl bg-pink-600 text-white font-semibold hover:bg-pink-700 transition-all text-sm">
+          Close Preview
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Feedback Toast Notification Container -->
+  <div id="contact-toast" class="fixed bottom-8 right-8 z-50 px-6 py-3.5 rounded-xl shadow-2xl font-semibold text-sm transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none"></div>
+
+  <!-- Main JavaScript Controller Entry -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>
