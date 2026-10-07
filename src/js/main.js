@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   initSandbox();
   initScrollEffects();
-  initBeforeAfterSlider();
   initResumeModal();
   initTiltAndSpotlight();
 });
@@ -459,14 +458,6 @@ function renderSkills() {
   `).join('');
 
   initTiltAndSpotlight();
-}
-
-/* ==========================================================================
-   6. Before / After Comparison Slider Logic
-   ========================================================================== */
-function initBeforeAfterSlider() {
-  const container = document.getElementById('before-after-slider');
-  if (!container) return;
 }
 
 /* ==========================================================================
