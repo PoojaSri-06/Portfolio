@@ -479,8 +479,8 @@ function initBeforeAfterSlider() {
 
   function updateSlider(val) {
     const clamped = Math.max(0, Math.min(100, val));
-    beforeLayer.style.width = `${clamped}%`;
-    divider.style.left = `${clamped}%`;
+    beforeLayer.style.height = `${clamped}%`;
+    divider.style.top = `${clamped}%`;
     rangeInput.value = clamped;
   }
 
@@ -489,7 +489,7 @@ function initBeforeAfterSlider() {
     updateSlider(e.target.value);
   });
 
-  // Handle opposite hover-based curtain reveal as mouse moves across card
+  // Handle vertical hover-based curtain reveal as mouse moves UP & DOWN across card
   let isHovered = false;
   container.addEventListener('mouseenter', () => { isHovered = true; });
   container.addEventListener('mouseleave', () => { isHovered = false; });
@@ -497,18 +497,17 @@ function initBeforeAfterSlider() {
   container.addEventListener('mousemove', (e) => {
     if (!isHovered) return;
     const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    // Flipped opposite hover calculation
-    const percentage = 100 - ((x / rect.width) * 100);
+    const y = e.clientY - rect.top;
+    const percentage = (y / rect.height) * 100;
     updateSlider(percentage);
   });
 
-  // Mobile Touch support (flipped opposite reveal)
+  // Mobile Touch support (vertical reveal)
   container.addEventListener('touchmove', (e) => {
     if (e.touches && e.touches[0]) {
       const rect = container.getBoundingClientRect();
-      const x = e.touches[0].clientX - rect.left;
-      const percentage = 100 - ((x / rect.width) * 100);
+      const y = e.touches[0].clientY - rect.top;
+      const percentage = (y / rect.height) * 100;
       updateSlider(percentage);
     }
   }, { passive: true });
