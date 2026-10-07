@@ -489,7 +489,7 @@ function initBeforeAfterSlider() {
     updateSlider(e.target.value);
   });
 
-  // Handle smooth hover-based curtain reveal as mouse moves across card
+  // Handle opposite hover-based curtain reveal as mouse moves across card
   let isHovered = false;
   container.addEventListener('mouseenter', () => { isHovered = true; });
   container.addEventListener('mouseleave', () => { isHovered = false; });
@@ -498,16 +498,17 @@ function initBeforeAfterSlider() {
     if (!isHovered) return;
     const rect = container.getBoundingClientRect();
     const x = e.clientX - rect.left;
-    const percentage = (x / rect.width) * 100;
+    // Flipped opposite hover calculation
+    const percentage = 100 - ((x / rect.width) * 100);
     updateSlider(percentage);
   });
 
-  // Mobile Touch support
+  // Mobile Touch support (flipped opposite reveal)
   container.addEventListener('touchmove', (e) => {
     if (e.touches && e.touches[0]) {
       const rect = container.getBoundingClientRect();
       const x = e.touches[0].clientX - rect.left;
-      const percentage = (x / rect.width) * 100;
+      const percentage = 100 - ((x / rect.width) * 100);
       updateSlider(percentage);
     }
   }, { passive: true });
