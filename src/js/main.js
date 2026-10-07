@@ -88,7 +88,7 @@ function initNavbar() {
 }
 
 /* ==========================================================================
-   3. Featured Projects Grid & Filtering with Native Media Elements
+   3. Featured Projects Grid & Filtering
    ========================================================================== */
 function renderProjects(filterCategory = 'all') {
   const container = document.getElementById('projects-grid');
@@ -108,10 +108,17 @@ function renderProjects(filterCategory = 'all') {
         </video>
       `;
     } else if (project.mediaType === 'pdf') {
+      // Clean, professional styled dark card container replacing broken iframe
       mediaHTML = `
-        <div class="relative w-full h-full bg-slate-900 flex items-center justify-center">
-          <iframe src="${project.pdfSrc}#page=1&view=FitH" class="w-full h-full pointer-events-none opacity-80" title="${project.title}"></iframe>
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+        <div class="relative w-full h-full bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-900 flex flex-col items-center justify-center p-6 text-center text-white border-b border-slate-800">
+          <div class="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-3 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9h3m-3 4h6m-6 4h4"/>
+            </svg>
+          </div>
+          <h4 class="text-base font-extrabold text-white mb-1">Presentation Deck Preview</h4>
+          <p class="text-xs text-slate-300">Click below to view full PDF</p>
         </div>
       `;
     } else if (project.image) {
@@ -121,6 +128,26 @@ function renderProjects(filterCategory = 'all') {
     } else {
       mediaHTML = project.bannerSvg || '';
     }
+
+    const buttonHTML = project.mediaType === 'pdf'
+      ? `
+        <a 
+          href="${project.pdfSrc}" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-pink-600 hover:bg-pink-700 text-white transition-all duration-200 shadow-md">
+          <span>Open PDF Presentation</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      `
+      : `
+        <button 
+          data-project-id="${project.id}" 
+          class="open-modal-btn w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-slate-900 hover:bg-pink-600 text-white dark:bg-slate-800 dark:hover:bg-pink-600 dark:text-white transition-all duration-200 shadow-sm">
+          <span>${project.mediaType === 'video' ? 'Play Video Reel' : 'View Project Case Study'}</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      `;
 
     return `
       <article class="group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-300 flex flex-col">
@@ -164,13 +191,8 @@ function renderProjects(filterCategory = 'all') {
               `).join('')}
             </div>
 
-            <!-- Modal Trigger Button -->
-            <button 
-              data-project-id="${project.id}" 
-              class="open-modal-btn w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-slate-900 hover:bg-pink-600 text-white dark:bg-slate-800 dark:hover:bg-pink-600 dark:text-white transition-all duration-200 shadow-sm">
-              <span>${project.mediaType === 'video' ? 'Play Video Reel' : project.mediaType === 'pdf' ? 'Open PDF Presentation' : 'View Project Case Study'}</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </button>
+            <!-- Action Button -->
+            ${buttonHTML}
           </div>
         </div>
       </article>
@@ -198,7 +220,7 @@ function initProjectFilters() {
 }
 
 /* ==========================================================================
-   4. Case Study Modal (<dialog>) with Proper HTML Tags (<video>, <embed>/<iframe>)
+   4. Case Study Modal (<dialog>) with Clean Media Rendering
    ========================================================================== */
 function initModal() {
   const dialog = document.getElementById('project-modal');
@@ -275,15 +297,18 @@ function attachModalListeners() {
         `;
       } else if (project.mediaType === 'pdf') {
         modalMediaHTML = `
-          <div class="space-y-3">
-            <iframe src="${project.pdfSrc}" class="w-full h-[520px] rounded-xl border border-slate-700 shadow-md bg-white"></iframe>
-            <div class="flex items-center justify-between text-xs text-slate-400">
-              <span>Interactive PDF Presentation Viewer</span>
-              <a href="${project.pdfSrc}" target="_blank" download class="inline-flex items-center gap-1 font-semibold text-pink-500 hover:underline">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                Download Full PDF Presentation
-              </a>
+          <div class="space-y-4 text-center p-8 rounded-2xl bg-slate-900 text-white border border-slate-800">
+            <div class="w-16 h-16 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mx-auto shadow-lg">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
             </div>
+            <h3 class="text-xl font-bold">Template-Based Presentation Deck</h3>
+            <p class="text-xs text-slate-300 max-w-md mx-auto">Click below to open the complete PDF presentation in a new tab for seamless full-screen viewing and downloading.</p>
+            <a href="${project.pdfSrc}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm bg-pink-600 hover:bg-pink-700 text-white transition-all shadow-lg">
+              <span>Open PDF in New Tab</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
           </div>
         `;
       } else if (project.gallery && project.gallery.length > 0) {
