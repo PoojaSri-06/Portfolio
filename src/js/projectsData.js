@@ -10,14 +10,14 @@ export const projectsData = [
     metrics: "Real Insta Grid",
     client: "Healthcare & Fashion Concepts",
     year: "2026",
-    image: "assets/images/insta-posts/1.png",
+    image: "/assets/images/insta-posts/1.png",
     gallery: [
-      "assets/images/insta-posts/1.png",
-      "assets/images/insta-posts/2.png",
-      "assets/images/insta-posts/3.png",
-      "assets/images/insta-posts/4.png",
-      "assets/images/insta-posts/5.png",
-      "assets/images/insta-posts/6.png"
+      "/assets/images/insta-posts/1.png",
+      "/assets/images/insta-posts/2.png",
+      "/assets/images/insta-posts/3.png",
+      "/assets/images/insta-posts/4.png",
+      "/assets/images/insta-posts/5.png",
+      "/assets/images/insta-posts/6.png"
     ],
     mediaType: "gallery",
     details: [
@@ -38,7 +38,7 @@ export const projectsData = [
     metrics: "PDF Slide Deck",
     client: "Professional Deck Design",
     year: "2026",
-    pdfSrc: "assets/pdfs/Template-Based Presentation.pdf",
+    pdfSrc: "/assets/pdfs/Template-Based Presentation.pdf",
     mediaType: "pdf",
     details: [
       "Clean slide master layout structure focused on information scannability",
@@ -58,7 +58,7 @@ export const projectsData = [
     metrics: "HD Video Reel",
     client: "Motion Graphics Showcase",
     year: "2026",
-    videoSrc: "assets/videos/video poetfolio.mp4",
+    videoSrc: "/assets/videos/video poetfolio.mp4",
     mediaType: "video",
     details: [
       "Dynamic video reel highlighting motion typography and graphic transitions",
@@ -78,7 +78,7 @@ export const projectsData = [
     metrics: "Featured Mascot",
     client: "Original Mascot Branding",
     year: "2026",
-    image: "assets/images/porfilio image 1.png",
+    image: "/assets/images/porfilio image 1.png",
     mediaType: "image",
     details: [
       "Custom signature red pixel-art heart mascot character design",

@@ -103,12 +103,11 @@ function renderProjects(filterCategory = 'all') {
 
     if (project.mediaType === 'video') {
       mediaHTML = `
-        <video class="w-full h-full object-cover" muted loop autoplay playsinline poster="assets/images/porfilio image 1.png">
+        <video class="w-full h-full object-cover" muted loop autoplay playsinline poster="/assets/images/porfilio image 1.png">
           <source src="${project.videoSrc}" type="video/mp4">
         </video>
       `;
     } else if (project.mediaType === 'pdf') {
-      // Clean, professional styled dark card container replacing broken iframe
       mediaHTML = `
         <div class="relative w-full h-full bg-gradient-to-tr from-slate-900 via-indigo-950 to-slate-900 flex flex-col items-center justify-center p-6 text-center text-white border-b border-slate-800">
           <div class="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mb-3 shadow-lg">
@@ -283,7 +282,7 @@ function attachModalListeners() {
       if (project.mediaType === 'video') {
         modalMediaHTML = `
           <div class="space-y-3">
-            <video controls class="w-full h-auto max-h-[500px] rounded-xl shadow-lg bg-black" preload="metadata" poster="assets/images/porfilio image 1.png">
+            <video controls class="w-full h-auto max-h-[500px] rounded-xl shadow-lg bg-black" preload="metadata" poster="/assets/images/porfilio image 1.png">
               <source src="${project.videoSrc}" type="video/mp4">
               Your browser does not support HTML video.
             </video>
