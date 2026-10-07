@@ -118,19 +118,10 @@ function renderProjects(filterCategory = 'all') {
       mediaHTML = `
         <div class="relative w-full h-full overflow-hidden bg-slate-900 group/pdf">
           <img src="${project.image || '/assets/images/presentation-preview.png'}" alt="${project.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-between p-4">
-            <div class="flex justify-between items-center">
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-pink-600/90 text-white backdrop-blur shadow-md">
-                PDF Slide Deck
-              </span>
-              <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur text-white flex items-center justify-center group-hover/pdf:scale-110 group-hover/pdf:bg-pink-500 transition-all">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </span>
-            </div>
-            <div class="text-white">
-              <span class="text-xs font-semibold text-pink-400 block font-mono">Template-Based Deck</span>
-              <span class="text-xs text-slate-300">Click button below to open full presentation</span>
-            </div>
+          <div class="absolute inset-0 bg-slate-950/20 group-hover/pdf:bg-slate-950/40 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+            <span class="opacity-0 group-hover/pdf:opacity-100 transition-opacity duration-300 px-4 py-2 rounded-full bg-pink-600/90 text-white text-xs font-bold shadow-xl backdrop-blur transform translate-y-2 group-hover/pdf:translate-y-0 transition-transform">
+              View Presentation PDF ↗
+            </span>
           </div>
         </div>
       `;
@@ -316,18 +307,22 @@ function attachModalListeners() {
         `;
       } else if (project.mediaType === 'pdf') {
         modalMediaHTML = `
-          <div class="space-y-4 text-center p-8 rounded-2xl bg-slate-900 text-white border border-slate-800">
-            <div class="w-16 h-16 rounded-2xl bg-pink-500/10 border border-pink-500/30 text-pink-400 flex items-center justify-center mx-auto shadow-lg">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-              </svg>
+          <div class="space-y-4">
+            <div class="relative w-full h-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border border-slate-700 group">
+              <img src="${project.image || '/assets/images/presentation-preview.png'}" alt="Presentation Slide Cover" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-pink-600 text-white shadow">
+                  Presentation Cover Slide Preview
+                </span>
+              </div>
             </div>
-            <h3 class="text-xl font-bold">Template-Based Presentation Deck</h3>
-            <p class="text-xs text-slate-300 max-w-md mx-auto">Click below to open the complete PDF presentation in a new tab for seamless full-screen viewing and downloading.</p>
-            <a href="${project.pdfSrc}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm bg-pink-600 hover:bg-pink-700 text-white transition-all shadow-lg">
-              <span>Open PDF in New Tab</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+              <span class="text-xs text-slate-600 dark:text-slate-300 font-medium">Full high-resolution deck available in PDF format.</span>
+              <a href="${project.pdfSrc}" target="_blank" rel="noopener noreferrer" class="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs bg-pink-600 hover:bg-pink-700 text-white transition-all shadow-md">
+                <span>Open PDF in New Tab</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
           </div>
         `;
       } else if (project.gallery && project.gallery.length > 0) {
