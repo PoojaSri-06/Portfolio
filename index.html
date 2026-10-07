@@ -373,88 +373,115 @@
 
 
     <!-- ==========================================================================
-         INTERACTIVE BEFORE / AFTER DESIGN COMPARISON SLIDER (CURTAIN REVEAL)
+         VISUAL TRANSFORMATION: BEFORE & AFTER SIDE-BY-SIDE COMPARISON
          ========================================================================== -->
     <section id="transformation" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-14">
         <span class="inline-block px-3.5 py-1 rounded-full text-xs font-bold bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20 mb-3">
-          Interactive Design Impact
+          Visual Impact Analysis
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Visual Transformation: Before &amp; After
         </h2>
         <p class="text-slate-600 dark:text-slate-300 text-sm mt-3">
-          Hover or drag your cursor up and down across the card to reveal the dramatic redesign transformation.
+          Compare the raw unstructured draft against Bhavani's high-impact visual redesign.
         </p>
       </div>
 
-      <!-- Before / After Vertical Curtain Reveal Slider Container -->
-      <div class="tilt-card spotlight-card relative w-full max-w-4xl mx-auto h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-950 select-none group cursor-ns-resize" id="before-after-slider">
+      <!-- Side-by-Side 2-Column Comparison Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         
-        <!-- AFTER Image Layer (Bottom / Full Background) -->
-        <div class="absolute inset-0 w-full h-full bg-slate-950 p-8 sm:p-12 flex flex-col justify-between text-white border border-pink-500/30 rounded-3xl overflow-hidden">
-          
-          <!-- Subtle Floating Background Gradient -->
-          <div class="absolute -right-20 -top-20 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
-
-          <div class="flex justify-between items-center relative z-10">
-            <span class="px-3 py-1.5 rounded-lg text-xs font-extrabold uppercase tracking-wider bg-pink-600 text-white shadow-lg border border-pink-400/40 transition-opacity duration-300 opacity-90 group-hover:opacity-100">
-              AFTER: Bhavani's Redesign ✨
-            </span>
-            <span class="text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">
-              +140% Readability &amp; Impact
-            </span>
-          </div>
-
-          <div class="max-w-lg space-y-4 relative z-10">
-            <span class="text-xs font-mono text-pink-400 tracking-widest uppercase font-bold">Executive Slide Master</span>
-            <h3 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight text-white">
-              Empowering Digital Growth with High-Impact Visual Systems
-            </h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              Structured multi-column information grid with calibrated WCAG contrast, custom typography scale, and intentional white-space balance for instant scanning.
-            </p>
-          </div>
-
-          <div class="flex gap-3 relative z-10">
-            <div class="px-4 py-2 rounded-xl bg-white/10 backdrop-blur border border-white/20 text-xs font-bold text-white shadow-sm">100% Visual Hierarchy</div>
-            <div class="px-4 py-2 rounded-xl bg-pink-500/20 backdrop-blur border border-pink-500/30 text-xs font-bold text-pink-300 shadow-sm">Swiss Grid Layout</div>
-          </div>
-        </div>
-
-        <!-- BEFORE Image Layer (Top / Clipped Foreground) -->
-        <div id="before-layer" class="absolute inset-x-0 top-0 h-1/2 bg-slate-200 text-slate-800 p-8 sm:p-12 flex flex-col justify-between overflow-hidden border-b-2 border-white shadow-2xl transition-all duration-75">
-          <div class="w-full h-[360px] sm:h-[440px] flex flex-col justify-between shrink-0">
-            <div class="flex justify-between items-center">
-              <span class="px-3 py-1.5 rounded-lg text-xs font-extrabold uppercase tracking-wider bg-slate-800 text-slate-200 shadow-md transition-opacity duration-300 opacity-90 group-hover:opacity-100">
-                BEFORE: Raw Unstructured Draft ⚠️
+        <!-- BEFORE CARD (Left Column) -->
+        <div class="tilt-card spotlight-card rounded-3xl bg-slate-100 dark:bg-slate-800/80 p-8 sm:p-10 border border-slate-300 dark:border-slate-700/80 shadow-xl flex flex-col justify-between relative overflow-hidden transition-all duration-300 group hover:border-slate-400 dark:hover:border-slate-600">
+          <div class="space-y-6 relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-extrabold uppercase tracking-wider bg-slate-900 text-slate-200 border border-slate-700 shadow-sm">
+                Before: Original Design ⚠️
+              </span>
+              <span class="text-xs font-mono text-rose-500 dark:text-rose-400 font-semibold bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">
+                Low Hierarchy
               </span>
             </div>
 
-            <div class="max-w-lg space-y-3">
-              <span class="text-xs text-slate-500 font-mono">Unformatted Plain Text</span>
-              <h3 class="text-2xl font-serif text-slate-800 font-bold">
+            <div class="p-6 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/50 space-y-3">
+              <span class="text-[11px] text-slate-500 font-mono uppercase tracking-wider">Unformatted Plain Text</span>
+              <h3 class="text-xl font-serif text-slate-800 dark:text-slate-200 font-bold leading-snug">
                 Digital Growth Presentation Slide Header
               </h3>
-              <p class="text-xs text-slate-600 leading-normal">
-                Generic unaligned text block without clear font hierarchy, low contrast ratios, no color strategy, and crowded bullet points that confuse executive viewers.
+              <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                Generic unaligned text block without clear font hierarchy, low contrast ratios, no intentional color strategy, and crowded bullet points that confuse executive viewers.
               </p>
             </div>
 
-            <div class="flex gap-2">
-              <span class="text-xs text-rose-600 font-bold bg-rose-100 px-3 py-1 rounded-md border border-rose-300">Poor Viewer Retention</span>
-            </div>
+            <ul class="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-rose-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span>No typography scale or visual grid</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-rose-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span>Fails accessibility contrast standards</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-rose-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                <span>Poor information retention rate</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 relative z-10">
+            <span>Status: Draft / Unrefined</span>
+            <span class="font-mono text-rose-500 font-bold">Audit Score: 38/100</span>
           </div>
         </div>
 
-        <!-- Interactive Range Slider Input Overlay for Click & Drag -->
-        <input type="range" min="0" max="100" value="50" id="slider-range-input" class="absolute inset-0 w-full h-full opacity-0 cursor-ns-resize z-30" aria-label="Before and after comparison vertical slider">
+        <!-- AFTER CARD (Right Column) -->
+        <div class="tilt-card spotlight-card rounded-3xl bg-slate-950 p-8 sm:p-10 border border-pink-500/40 shadow-2xl shadow-pink-500/10 flex flex-col justify-between relative overflow-hidden transition-all duration-300 group hover:border-pink-500/80 hover:shadow-pink-500/20">
+          
+          <!-- Background Glow Effect -->
+          <div class="absolute -right-16 -top-16 w-64 h-64 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- Visual Slider Horizontal Divider Line & Handle Icon -->
-        <div id="slider-divider" class="absolute left-0 right-0 top-1/2 h-1 bg-white shadow-[0_0_15px_rgba(236,72,153,0.8)] pointer-events-none z-20 -translate-y-1/2 flex items-center justify-center">
-          <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-2xl flex items-center justify-center border-2 border-white text-base font-black transition-transform group-hover:scale-110">
-            &#8597;
+          <div class="space-y-6 relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="px-3.5 py-1.5 rounded-xl text-xs font-extrabold uppercase tracking-wider bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-lg border border-pink-400/40">
+                After: Bhavani's Redesign ✨
+              </span>
+              <span class="text-xs font-mono text-emerald-400 font-extrabold bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/30">
+                +140% Impact
+              </span>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-slate-900/90 border border-pink-500/30 space-y-3 shadow-inner">
+              <span class="text-[11px] font-mono text-pink-400 uppercase tracking-widest font-bold">Executive Slide Master</span>
+              <h3 class="text-2xl font-black text-white tracking-tight leading-snug">
+                Empowering Digital Growth with High-Impact Visual Systems
+              </h3>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Structured multi-column information grid with calibrated WCAG contrast, custom typography scale, and intentional white-space balance for instant scanning.
+              </p>
+            </div>
+
+            <ul class="space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="font-medium text-white">Swiss 12-column grid alignment</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="font-medium text-white">100% WCAG AAA contrast compliance</span>
+              </li>
+              <li class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span class="font-medium text-white">Instant executive visual scanning</span>
+              </li>
+            </ul>
           </div>
+
+          <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 relative z-10">
+            <span class="text-pink-400 font-semibold">Status: Production Master</span>
+            <span class="font-mono text-emerald-400 font-bold">Audit Score: 98/100</span>
+          </div>
+
         </div>
 
       </div>

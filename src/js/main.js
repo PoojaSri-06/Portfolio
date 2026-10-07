@@ -466,48 +466,7 @@ function renderSkills() {
    ========================================================================== */
 function initBeforeAfterSlider() {
   const container = document.getElementById('before-after-slider');
-  const rangeInput = document.getElementById('slider-range-input');
-  const beforeLayer = document.getElementById('before-layer');
-  const divider = document.getElementById('slider-divider');
-
-  if (!container || !rangeInput || !beforeLayer || !divider) return;
-
-  function updateSlider(val) {
-    const clamped = Math.max(0, Math.min(100, val));
-    beforeLayer.style.height = `${clamped}%`;
-    divider.style.top = `${clamped}%`;
-    rangeInput.value = clamped;
-  }
-
-  // Handle click & drag range input
-  rangeInput.addEventListener('input', (e) => {
-    updateSlider(e.target.value);
-  });
-
-  // Handle vertical hover-based curtain reveal as mouse moves UP & DOWN across card
-  let isHovered = false;
-  container.addEventListener('mouseenter', () => { isHovered = true; });
-  container.addEventListener('mouseleave', () => { isHovered = false; });
-
-  container.addEventListener('mousemove', (e) => {
-    if (!isHovered) return;
-    const rect = container.getBoundingClientRect();
-    const y = e.clientY - rect.top;
-    const percentage = (y / rect.height) * 100;
-    updateSlider(percentage);
-  });
-
-  // Mobile Touch support (vertical reveal)
-  container.addEventListener('touchmove', (e) => {
-    if (e.touches && e.touches[0]) {
-      const rect = container.getBoundingClientRect();
-      const y = e.touches[0].clientY - rect.top;
-      const percentage = (y / rect.height) * 100;
-      updateSlider(percentage);
-    }
-  }, { passive: true });
-
-  updateSlider(50);
+  if (!container) return;
 }
 
 /* ==========================================================================
